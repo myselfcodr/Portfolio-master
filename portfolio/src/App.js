@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";  // Imports at top
 import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
@@ -11,22 +11,23 @@ import {
   Route,
   Routes,
   Navigate
-} from "react-router-dom";``
+} from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [load, upadateLoad] = useState(true);
+  const [load, updateLoad] = useState(true);  // Corrected typo
 
+  // UseEffect - Timer for preloader
   useEffect(() => {
     const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
+      updateLoad(false);  // Update load state after timeout
+    }, 1200);  // Time duration for preloader
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer);  // Clean up timeout
+  }, []);  // Empty dependency array, runs once
 
   return (
     <Router>
